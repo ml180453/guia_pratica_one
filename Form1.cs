@@ -3,6 +3,7 @@ namespace guia_pratica_one
     public partial class Form1 : Form
     {
         int x, y;
+        private Random random = new Random();
 
         public Form1()
         {
@@ -16,14 +17,19 @@ namespace guia_pratica_one
 
             var selectedIndex = listBox.SelectedIndex;
 
+            // Generate a random un color
+            Color color = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+
+            int size  = random.Next(60, 200);
+
             if (selectedIndex == 0) {
-                SolidBrush brush = new SolidBrush(Color.Red);
-                g.DrawEllipse(lapiz, x - 50, y - 50, 100, 100);
-                g.FillEllipse(brush, x -50, y -50, 100, 100);
+                SolidBrush brush = new SolidBrush(color);
+                g.DrawEllipse(lapiz, x - 50, y - 50, size, size);
+                g.FillEllipse(brush, x -50, y -50, size, size);
             } else if(selectedIndex == 1) {
-                SolidBrush brush = new SolidBrush(Color.Green);
-                g.DrawRectangle(lapiz, x - 50, y - 50, 100, 100);
-                g.FillRectangle(brush, x - 50, y - 50, 100, 100);
+                SolidBrush brush = new SolidBrush(color);
+                g.DrawRectangle(lapiz, x - 50, y - 50, size, size);
+                g.FillRectangle(brush, x - 50, y - 50, size, size);
             }
         }
 
