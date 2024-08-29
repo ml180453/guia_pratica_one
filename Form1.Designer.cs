@@ -28,18 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panel = new Panel();
+            listBox = new ListBox();
             SuspendLayout();
+            // 
+            // panel
+            // 
+            panel.BorderStyle = BorderStyle.FixedSingle;
+            panel.Location = new Point(12, 12);
+            panel.Name = "panel";
+            panel.Size = new Size(396, 567);
+            panel.TabIndex = 0;
+            panel.Paint += panel_Paint;
+            panel.MouseClick += panel_MouseClick;
+            // 
+            // listBox
+            // 
+            listBox.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            listBox.ForeColor = Color.DarkTurquoise;
+            listBox.FormattingEnabled = true;
+            listBox.ItemHeight = 15;
+            listBox.Items.AddRange(new object[] { "Círculo", "Rectángulo" });
+            listBox.Location = new Point(414, 12);
+            listBox.Name = "listBox";
+            listBox.Size = new Size(178, 64);
+            listBox.TabIndex = 1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(604, 581);
+            ClientSize = new Size(624, 581);
+            Controls.Add(listBox);
+            Controls.Add(panel);
             Name = "Form1";
             Text = "Dibujos";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel;
+        private ListBox listBox;
     }
 }
